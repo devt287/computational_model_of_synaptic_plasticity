@@ -21,6 +21,6 @@ Following the convention in **Graupner & Brunel (2012)** (*Calcium-based plastic
 | **PD**   | `0, 1, -1, 0` | Basal-Potentiation-Depression-Basal |
 
 
-## notation on parameter tuning
+notation on parameter tuning:
 If you want to implement the code and do some parameter analysis, the first thing you need to import **state_analysis.py**. Then you need import data from the txt file generated from the code. 
 
