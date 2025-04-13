@@ -78,7 +78,7 @@ for idx = 1:length(delta_t_values)
     % Differential equations for Y(1) and Y(2)
     g2 = @(t,Y,Ca)[k1*((Ktot-Y(1)-Y(3))/(Km1+(Ktot-Y(1)-Y(3))))*Y(1)-((k2*Y(1))/(Km2+Y(1)))*(Y(2)+P0)+k3*K0+(k4*(Ca.^4)*(Ktot-Y(1)-Y(3)))/(Km4^4+Ca.^4);
     (k11_new*((Ptot-Y(2))/(Km11+(Ptot-Y(2))))*Y(2)-k12*(Y(2)/(Km12+Y(2)))*(pre*Y(1)+K0)+k13*P0+(k14*(Ca.^3)/(Km^3+Ca.^3))*(Ptot-Y(2)));
-    -mu(t)*Y(3)+nu(Y(1))*(Ktot-Y(1)-Y(3));];
+    -mu(Ca)*Y(3)+nu(Y(1))*(Ktot-Y(1)-Y(3));];
     g_tot = @(t,Y) [g2(t,Y(1:3), Y(4))/1000; g(t,Y(4))]; 
     % Solve the differential equations for Y(1) and Y(2)
     [t1,X]=ode45(g_tot, span, init_val, opts);
