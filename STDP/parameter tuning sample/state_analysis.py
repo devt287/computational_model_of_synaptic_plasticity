@@ -6,8 +6,6 @@ import os
 import pandas as pd
 from IPython.display import display
 
-
-#import the txt file to the dictionary
 def import_data(filepath):
     # Initialize an empty dictionary
     results = {}
@@ -33,7 +31,7 @@ def import_data(filepath):
 
     return results
 
-#sort the txt
+
 def export_data(data_dict, filepath):
     """
     Exports the data from a dictionary to a file.
@@ -684,7 +682,7 @@ def visualize_multi_list_lengths(list_of_lists, list_names, name_list, save_addr
         plt.close()
 
 
-def DPD_pattern(a, a_info, save_path, show="true"):
+def DPD_pattern(a, a_info, save_path=None, show="true"):
     """
     Generate a horizontal heatmap with adjusted entry dimensions based on the DPD cases from a_info.
     The x-axis corresponds to delta_t_values, and the y-axis corresponds to sorted DPD cases' G_VDCC values.
@@ -692,11 +690,11 @@ def DPD_pattern(a, a_info, save_path, show="true"):
     Parameters:
     - a: Dictionary from `import_data`, containing G_VDCC values as keys and lists as values.
     - a_info: List from the `get_info` function, containing information about DPD cases and other parameters.
-    - save_path: Path to save the generated heatmap.
+    - save_path: Optional. Path to save the generated heatmap. If None, the plot is not saved.
     - show: If "true", display the plot. If not "true", skip displaying it.
     """
     # Define delta_t_values
-    delta_t_values = [-500, -400, -300, -200, -150, -100, -75, -50, -25, -10, 0, 10, 25, 50, 75, 100, 200, 300, 400, 500]
+    delta_t_values = [-500, -400, -300, -200, -150, -100, -75, -50, -25, -20,-15,-10, 0, 10,12,14,16,18,20,22, 25, 50, 75, 100, 200, 300, 400, 500]
 
     # Extract DPD keys from a_info
     DPD_keys = a_info[2]  # Assuming a_info[2] contains DPD keys
@@ -737,10 +735,11 @@ def DPD_pattern(a, a_info, save_path, show="true"):
     if show == "true":
         plt.show()
 
-    # Save the plot
-    plt.savefig(save_path)
-    plt.close()
-    print(f"Saved heatmap to {save_path}")
+    # Save the plot only if save_path is provided
+    if save_path:
+        plt.savefig(save_path)
+
+
 
 
 def DPD_combo(a_list, a_info_list, path):
