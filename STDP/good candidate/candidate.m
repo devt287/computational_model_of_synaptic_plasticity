@@ -4,7 +4,7 @@ parameter_pairs = [
     0.9,1.5,0.9,100, 0.25, 0.055,60,1,1.3,2.5,200,88;
 
 %candidate 2: not in LTD preferred region, but pattern-wise it produced good DP with LTP extends to 50ms and LTD to -15ms.
-    0.9,1.5,1.04,100, 0.25, 0.055,60,1,1.3,3,18.5,80;
+    0.9,1.5,1.04,100, 0.25, 0.055,60,1,1.3,3,185,80;
 
 %candidate 3: in LTD preferred region, but with LTD blip
     0.9,1.5,0.96,100, 0.25, 0.055,60,1,1.3,2.5,200,100;   
