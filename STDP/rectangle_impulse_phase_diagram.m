@@ -30,7 +30,7 @@ for dt=0.1:0.1:10
         nu = @(pK) v*par2(1)/(1+ par2(2)*pK)+1-par2(1);
         g = @(t,Y) [k1*((Ktot-Y(1)-Y(3))/(Km1+(Ktot-Y(1)-Y(3))))*Y(1)-((k2*Y(1))/(Km2+Y(1)))*(Y(2)+P0)+k3*K0+(k4*(Ca(t).^4)*(Ktot-Y(1)-Y(3)))/(Km4^4+Ca(t).^4);
             (k11*((Ptot-Y(2))/(Km11+(Ptot-Y(2))))*Y(2)-k12*(Y(2)/(Km12+Y(2)))*(Y(1)+K0)+k13*P0+(k14*(Ca(t).^3)/(Km^3+Ca(t).^3))*(Ptot-Y(2)));
-            -mu(Ca)*Y(3)+nu(Y(1))*(Ktot-Y(1)-Y(3))];
+            -mu(Ca(t))*Y(3)+nu(Y(1))*(Ktot-Y(1)-Y(3))];
                
         % Solve ODE
         opts = odeset('RelTol',1e-6,'AbsTol',1e-5, 'MaxStep', 0.1);
